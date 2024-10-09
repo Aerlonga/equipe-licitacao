@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Laravel\Prompts\Key;
 
 return new class extends Migration
 {
@@ -10,11 +11,12 @@ return new class extends Migration
     public function up()
     {
         Schema::create('licitacoes', function (Blueprint $table) {
-            $table->id(); // ID autoincremental para cada registro de licitação
-            $table->foreignId('pessoa_id')->constrained('pessoas'); // Chave estrangeira referenciando a pessoa
-            $table->string('funcao'); // Função da pessoa na licitação (gestor, integrante técnico, fiscal)
-            $table->date('data_licitacao'); // Data da licitação
+            $table->increments('id_licitacao')->primaryKey(); // ID autoincremental para cada registro de licitação
             $table->string('objeto_contratacao'); // Objeto da contratação
+            $table->integer('id_gestor'); // Registro do gestor
+            $table->integer('id_integrante'); // Registro do integrante
+            $table->integer('id_fiscal'); // Registro do fiscal
+            $table->date('data_licitacao'); // Data da licitação
             $table->timestamps(); // Criado / Atualizado
         });
     }
