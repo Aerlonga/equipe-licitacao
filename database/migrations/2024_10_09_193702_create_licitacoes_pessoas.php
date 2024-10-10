@@ -24,7 +24,7 @@ return new class extends Migration
             $table->unsignedBigInteger('id_gestor');
             $table->unsignedBigInteger('id_integrante');
             $table->unsignedBigInteger('id_fiscal');
-            
+
             // Coluna para armazenar a função de cada pessoa
             $table->string('funcao'); // Função da pessoa (gestor, integrante, fiscal)
 

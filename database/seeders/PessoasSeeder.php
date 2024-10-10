@@ -15,9 +15,8 @@ class PessoasSeeder extends Seeder
             ['nome' => 'Thaynara', 'created_at' => new DateTime(), 'updated_at' => new DateTime()],
             ['nome' => 'Francielle', 'created_at' => new DateTime(), 'updated_at' => new DateTime()]
         ];
-        
         foreach ($pessoas as $pessoa) {
-            Pessoa::create($pessoa); 
+            Pessoa::create($pessoa);
         }
     }
 }
