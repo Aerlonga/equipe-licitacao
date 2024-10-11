@@ -9,7 +9,7 @@ Route::get('/', function () {
 
 Route::get('/equipe', function () {
     return view('equipe');
-});
+})->name('EquipeSalva');
 
 
-Route::get('/gerar-equipe', [LicitacaoController::class, 'gerarEquipe']);
+Route::post('/gerar-equipe', [LicitacaoController::class, 'gerarEquipe'])->name('LicitacoesSalvar');

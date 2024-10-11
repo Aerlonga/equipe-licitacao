@@ -17,4 +17,9 @@ class Pessoa extends Model
     {
         return $this->hasMany(Licitacao::class);
     }
+    // Relacionamento: uma pessoa pode estar em várias sequencias de licitações
+    public function sequencias()
+    {
+        return $this->hasMany(SequenciaLicitacao::class);
+    }
 }

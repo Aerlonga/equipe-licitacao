@@ -12,7 +12,7 @@ class Licitacao extends Model
 
     protected $table = 'licitacoes';
 
-    protected $fillable = ['id_gestor', 'id_integrante', 'id_fiscal', 'funcao', 'data_licitacao', 'objeto_contratacao'];
+    protected $fillable = ['id_gestor', 'id_integrante', 'id_fiscal', 'objeto_contratacao'];
 
     // Relacionamento: uma licitação pertence a um gestor (pessoa)
     public function gestor()

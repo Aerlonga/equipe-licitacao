@@ -25,22 +25,32 @@ return new class extends Migration
             $table->unsignedBigInteger('id_integrante');
             $table->unsignedBigInteger('id_fiscal');
 
-            // Coluna para armazenar a função de cada pessoa
-            $table->string('funcao'); // Função da pessoa (gestor, integrante, fiscal)
 
-            $table->date('data_licitacao'); // Data da licitação
             $table->timestamps(); // Criado / Atualizado
 
+
             // Definindo chaves estrangeiras corretamente
-            $table->foreign('id_gestor')->references('id_pessoa')->on('pessoas')->onDelete('cascade');
-            $table->foreign('id_integrante')->references('id_pessoa')->on('pessoas')->onDelete('cascade');
-            $table->foreign('id_fiscal')->references('id_pessoa')->on('pessoas')->onDelete('cascade');
+            $table->foreign('id_gestor')->references('id_pessoa')->on('pessoas');
+            $table->foreign('id_integrante')->references('id_pessoa')->on('pessoas');
+            $table->foreign('id_fiscal')->references('id_pessoa')->on('pessoas');
+        });
+
+        Schema::create('sequencia_licitacao', function (Blueprint $table) {
+            $table->bigIncrements('id_sequencia');
+            $table->unsignedBigInteger('id_gestor');
+            $table->unsignedBigInteger('id_integrante');
+            $table->unsignedBigInteger('id_fiscal');
+            $table->timestamps();
+            $table->foreign('id_gestor')->references('id_pessoa')->on('pessoas');
+            $table->foreign('id_integrante')->references('id_pessoa')->on('pessoas');
+            $table->foreign('id_fiscal')->references('id_pessoa')->on('pessoas');
         });
     }
 
     public function down(): void
     {
         Schema::dropIfExists('licitacoes');
+        Schema::dropIfExists('sequencia_licitacao');
         Schema::dropIfExists('pessoas');
     }
 };
