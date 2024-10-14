@@ -6,8 +6,12 @@ use App\Models\Licitacao;
 use App\Models\Pessoa;
 use App\Models\SequenciaLicitacao;
 use DateTime;
+use Illuminate\Support\Facades\DB;
 
 use function PHPUnit\Framework\isNull;
+
+DB::statement("ALTER TABLE licitacoes AUTO_INCREMENT = 1;");
+DB::statement("ALTER TABLE sequencia_licitacao AUTO_INCREMENT = 1;");
 
 class LicitacaoService
 {
