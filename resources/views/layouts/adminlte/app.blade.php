@@ -23,9 +23,10 @@
     </div>
 
     <!-- Scripts JS -->
-    <script src="{{ asset('resources/vendor/adminlte/plugins/jquery/jquery.min.js') }}"></script>
-    <script src="{{ asset('resources/vendor/adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('resources/vendor/adminlte/dist/js/adminlte.min.js') }}"></script>
+    <script src="{{ asset('vendor/adminlte/plugins/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('vendor/adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('vendor/adminlte/dist/js/adminlte.min.js') }}"></script>
+
     @yield('scripts')
 </body>
 
