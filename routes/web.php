@@ -12,4 +12,12 @@ Route::get('/equipe', function () {
 })->name('EquipeSalva');
 
 
+Route::get('/teste', function () {
+    return view('teste');
+})->name('teste');
+
+
+
 Route::post('/gerar-equipe', [LicitacaoController::class, 'gerarEquipe'])->name('LicitacoesSalvar');
+
+
